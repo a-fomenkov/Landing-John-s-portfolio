@@ -1,3 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo:regular,500,700,900&display=swap");
+.blog {
+  padding: 0 0 50px 0;
+}
+
+@media (max-width: 767.98px) {
+  .blog {
+    padding: 0 0 30px 0;
+  }
+}
+
+.blog__title {
+  margin: 0 0 50px 0;
+}
+
+@media (max-width: 767.98px) {
+  .blog__title {
+    margin: 0 0 20px 0;
+  }
+}
+
+.blog__article-name {
+  font-size: 30px;
+  font-weight: 500;
+  display: inline-block;
+  line-height: 146.66667%;
+  margin: 0 0 10px 0;
+  color: inherit;
+  -webkit-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
+}
+
+@media (min-width: 991.98px) {
+  .blog__article-name:hover {
+    color: #ff6464;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .blog__article-name {
+    font-size: 26px;
+  }
+}
+
+.blog__item {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 0 30px 0;
+  margin: 0 0 30px 0;
+}
+
+.blog__item:last-child {
+  margin: 0 0 0 0;
+}
+
+@media (max-width: 767.98px) {
+  .blog__item {
+    padding: 0 0 20px 0;
+    margin: 0 0 20px 0;
+  }
+}
+
+.blog__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+
+.blog__info span {
+  margin: 0 15px;
+}
+
+@media (max-width: 767.98px) {
+  .blog__info {
+    font-size: 16px;
+  }
+}
+
+.blog__category {
+  color: #8695A4;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -70,9 +153,52 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
+@font-face {
+  font-family: 'icons';
+  font-display: swap;
+  src: url("../source/iconsfont/fonts/icons.woff") format("woff"), url("../source/iconsfont/fonts/icons.woff2#icons") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="_icon-"]::before,
+[class*=" _icon-"]::before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="_icon-"]::before,
+[class*=" _icon-"]::before {
+  display: block;
+}
+
+._icon-fb:before {
+  content: "\e900";
+}
+
+._icon-insta:before {
+  content: "\e901";
+}
+
+._icon-twitter:before {
+  content: "\e902";
+}
+
+._icon-linkedin:before {
+  content: "\e903";
+}
+
 body {
   color: #21243D;
   font-size: 14px;
+  font-family: "Heebo";
 }
 
 .page {
@@ -256,12 +382,15 @@ body {
 }
 
 .menu__link {
-  font-family: Heebo;
   font-weight: 500;
   font-size: 20px;
   color: #000000;
   -webkit-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
+}
+
+.menu__link._active {
+  color: #ff6464;
 }
 
 @media (min-width: 991.98px) {
@@ -598,19 +727,25 @@ body {
   margin: 0 0 40px 0;
 }
 
-.works {
-  /*&__text {
-		
-	}*/
-}
-
 @media (max-width: 767.98px) {
-  .works {
+  .featured-works__items {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     overflow: auto;
   }
+  .featured-works__items .works__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    margin: 0 15px 0 0;
+  }
+}
+
+.works {
+  /*&__text {
+		
+	}*/
 }
 
 .works__item {
@@ -627,15 +762,6 @@ body {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .works__item {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
-    margin: 0 15px 0 0;
   }
 }
 
@@ -728,4 +854,52 @@ body {
   line-height: 145%;
   color: #8695A4;
   margin: 0 0 0 25px;
+}
+
+.footer {
+  text-align: center;
+  padding: 50px 0;
+  /*&__content {
+
+	}*/
+  /*
+	&__copyright {
+
+	}*/
+}
+
+@media (max-width: 767.98px) {
+  .footer {
+    padding: 50px 0 30px 0;
+  }
+}
+
+.footer__social {
+  margin: 0 0 25px 0;
+}
+
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.social__item {
+  margin: 0 17px;
+  font-size: 30px;
+  color: inherit;
+  -webkit-transition: color 0.3s ease 0s;
+  transition: color 0.3s ease 0s;
+}
+
+@media (min-width: 991.98px) {
+  .social__item:hover {
+    color: #ff6464;
+  }
 }

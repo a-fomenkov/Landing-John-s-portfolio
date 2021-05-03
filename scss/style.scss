@@ -1,6 +1,20 @@
+//<ПОДКЛЮЧЕНИЕ ДРУГИХ СТРАНИЦ>================================
+@import "blog";
+//<ПОДКЛЮЧЕНИЕ ДРУГИХ СТРАНИЦ>================================
+
 //<ОБНУЛЕНИЕ>=================================================
 @import "nullStyle.scss";
 //<ОБНУЛЕНИЕ>=================================================
+
+//<ШРИФТЫ>=================================================
+//&subset=cyrillic-ext  ===  если используется кириллица
+@import url("https://fonts.googleapis.com/css?family=Heebo:regular,500,700,900&display=swap");
+
+$fontFamily: "Heebo";
+
+//<ИКОНОЧНЫЙ ШРИФТ>================
+@import "icons.scss";
+//<ШРИФТЫ>=================================================
 
 //<ПЕРЕМЕННЫЕ>============================================================================================
 $minWidth: 320px;
@@ -15,6 +29,7 @@ $md4: 480;
 body {
 	color: #21243D;
 	font-size: 14px;
+	font-family: "Heebo";
 }
 .page {
 	flex: 1 1 auto;
@@ -140,14 +155,14 @@ body {
 		}
 	}
 	&__link {
-		font-family: Heebo;
-		//font-style: normal;
 		font-weight: 500;
 		font-size: 20px;
 
 		color: #000000;
 		transition: color 0.3s ease 0s;
-
+		&._active {
+			color: #ff6464;
+		}
 		@media (min-width: $md2+px){
 			&:hover {
 				color: #ff6464;
@@ -377,12 +392,18 @@ body {
 	&__title {
 		margin: 0 0 40px 0;
 	}
+	&__items {
+		@media (max-width: $md3+px) {
+			display: flex;
+			overflow: auto;
+			.works__item {
+				flex: 0 0 100%;
+				margin: 0 15px 0 0;
+			}
+		}
+	}
 }
 .works {
-	@media (max-width: $md3+px) {
-		display: flex;
-		overflow: auto;
-	}
 	&__item {
 		padding: 0 0 30px 0;
 		margin: 0 0 30px 0;
@@ -390,10 +411,6 @@ body {
 		@media (min-width: $md3+px) {
 			display: flex;
 			align-items: flex-start;
-		}
-		@media (max-width: $md3+px) {
-			flex: 0 0 100%;
-			margin: 0 15px 0 0;
 		}
 	}
 	&__image {
@@ -461,14 +478,43 @@ body {
 		
 	}*/
 }
-
 //<MAIN PAGE>============================================================================================
 
+//<FOOTER>===============================================================================================
+.footer {
+	text-align: center;
+	padding: 50px 0;
+	@media (max-width: $md3+px) {
+		padding: 50px 0 30px 0;
+	}
+	/*&__content {
 
+	}*/
+	&__social {
+		margin: 0 0 25px 0;
+	}/*
+	&__copyright {
 
+	}*/
+}
 
-
-
+.social {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&__item {
+		margin: 0 17px;
+		font-size: 30px;
+		color: inherit;
+		transition: color 0.3s ease 0s;
+		@media (min-width: $md2+px) {
+			&:hover {
+				color: #ff6464;
+			}
+		}
+	}
+}
+//<FOOTER>===============================================================================================
 
 
 //==========после всего подключить шрифт==============================

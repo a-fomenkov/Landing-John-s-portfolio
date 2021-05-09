@@ -135,7 +135,7 @@ function clean(params) {
 }
 
 let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts));
-let watch = gulp.parallel(build, watchFiles, browserSync);
+let watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 exports.fonts = fonts;
 exports.images = images;

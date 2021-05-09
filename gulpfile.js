@@ -1,9 +1,6 @@
-const { notify } = require('browser-sync');
 
 let project_folder = "dist";
 let source_folder = "#src";
-
-let fs = require('fs');
 
 let path = {
 	build: {
@@ -34,7 +31,7 @@ let { src, dest, prependListener } = require('gulp'),
 	browsersync = require("browser-sync").create(),
 	fileinclude = require("gulp-file-include"),
 	del = require("del"),
-	scss = require("gulp-sass"),
+	scss = require("gulp-dart-sass"),
 	autoprefixer = require("gulp-autoprefixer"),
 	group_media = require("gulp-group-css-media-queries"),
 	clean_css = require("gulp-clean-css"),
@@ -126,29 +123,6 @@ gulp.task('otf2ttf', function () {
 		.pipe(dest(source_folder + '/fonts/'));
 })
 
-function fontsStyle(params) {
-	let file_content = fs.readFileSync(source_folder + '/scss/fonts.scss');
-	if (file_content == '') {
-		fs.writeFile(source_folder + '/scss/fonts.scss', '', cb);
-		return fs.readdir(path.build.fonts, function (err, items) {
-			if (items) {
-				let c_fontname;
-				for (var i = 0; i < items.length; i++) {
-					let fontname = items[i].split('.');
-					fontname = fontname[0];
-					if (c_fontname != fontname) {
-						fs.appendFile(source_folder + '/scss/fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
-					}
-					c_fontname = fontname;
-				}
-			}
-		})
-	}
-}
-function cb() {
-
-}
-
 function watchFiles(params) {
 	gulp.watch([path.watch.html], html);
 	gulp.watch([path.watch.css], css);
@@ -160,10 +134,9 @@ function clean(params) {
 	return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
-exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
 exports.images = images;
 exports.js = js;

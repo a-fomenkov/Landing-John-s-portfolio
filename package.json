@@ -4,7 +4,7 @@
   "description": "Сборка gulp",
   "main": "index.html",
   "scripts": {
-    "watch":"gulp"
+    "watch":"gulp",
     "build":"gulp build"
   },
   "author": "Aleksandr",

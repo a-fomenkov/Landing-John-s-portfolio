@@ -1,0 +1,43 @@
+//<ОБЩИЕ СТИЛИ>=================================================================================
+.title {
+	font-size: 44px;
+	font-weight: 700;
+	color: #21243D;
+	line-height: 60 / 44 * 100%;
+	@media (max-width: $md3 + px) {
+		font-size: 32px;
+	}
+}
+.text {
+	font-size: 16px;
+	color: #21243D;
+	line-height: 23 / 16 * 100%;
+}
+.btn {
+	background: #FF6464;
+	border-radius: 2px;
+	height: 47px;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 29 / 20 * 100%;
+	color: #fff;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0px 20px;
+	transition: background-color 0.3s ease 0s;
+	@media (min-width: 992px) {
+		&:hover{
+			background-color: #d44747;
+		}
+	}
+}
+.title-posts {
+	font-size: 22px;
+	@media (max-width: $md3 + px) {
+		text-align: center;
+		font-size: 18px;
+	}
+}
+
+//<ОБЩИЕ СТИЛИ>=================================================================================
